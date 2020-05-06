@@ -15,7 +15,7 @@
     <% @incomes.each do |income| %>
       <tr>
         <td><%= income.name %></td>
-        <td><%= income.desription %></td>
+        <td><%= income.description %></td>
         <td>
           <%= link_to "編集", [:edit, income]%>
           <%= link_to "削除", income, method: :delete, data: { confirm: "本当に削除しますか？"} %>

@@ -16,17 +16,20 @@ class IncomesController < ApplicationController
   end
 
   def create
-    @income = Income.new(params[:income])
-    if @income.save
-      redirect_to @income, notice: "収入科目が登録しました"
-    else
-      render "new"
-    end
+    Income.create(income_params)
+    # redirect_to root_path
+    # @income = Income.new(params[:income])
+    # if income.save
+      redirect_to root_path, notice: "収入科目が登録しました"
+    # else
+      # render "new"
+    # end
   end
 
   def update
     @income = Income.find(params[:id])
-    @income.assign_attributes(params[:income])
+    # @income.assign_attributes(params[:income])
+    @income.update(income_params)
     if @income.save
       redirect_to @income, notice: "収入科目が登録しました"
     else
@@ -38,5 +41,9 @@ class IncomesController < ApplicationController
     @income = Income.find(params[:id])
     @income.destroy
     redirect_to :incomes, notice: "科目を削除しました"
+  end
+
+  def income_params
+    params.require(:income).permit(:name, :description)
   end
 end

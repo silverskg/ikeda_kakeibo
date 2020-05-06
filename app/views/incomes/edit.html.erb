@@ -1,5 +1,5 @@
 <h2>収入科目編集</h2>
-<%= form_with model: @income do |form| %>
+<%= form_for @income do |form| %>
   <%= render "form", form: form %>
   <div><%= form.submit %></div>
 <% end %>

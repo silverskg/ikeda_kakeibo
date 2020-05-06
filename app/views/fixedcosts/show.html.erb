@@ -1,0 +1,15 @@
+<h2>固定費科目の詳細</h2>
+
+<%= link_to "編集", edit_fixedcost_path(@fixedcost.id)%>
+<%= link_to "固定費科目一覧へ戻る", :fixedcosts %>
+
+<table>
+	<tr>
+    <th>名称</th>
+    <td><%= @fixedcost.name %></td>
+  </tr>
+	<tr>
+		<th>説明</th>
+		<td><%= @fixedcost.description %></td>
+	</tr>
+</table>
