@@ -1,12 +1,14 @@
 <% @page_title = "収入科目一覧" %>
 <h2><%= @page_title %></h2>
 
+<%= link_to "収入科目の新規登録", :new_income %>
 <% if @incomes.present? %>
 <table>
   <thead>
     <tr>
       <th>科目名</th>
       <th>備考</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +16,10 @@
       <tr>
         <td><%= income.name %></td>
         <td><%= income.desription %></td>
+        <td>
+          <%= link_to "編集", [:edit, income]%>
+          <%= link_to "削除", income, method: :delete, data: { confirm: "本当に削除しますか？"} %>
+        </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,15 @@
+<h2>収入科目の詳細</h2>
+
+<%= link_to "編集", [:erdit, @income]%>
+<%= link_to "収入科目一覧へ戻る", :incomes %>
+
+<table>
+	<tr>
+    <th>名称</th>
+    <td><%= @income.name %></td>
+  </tr>
+	<tr>
+		<th>説明</th>
+		<td><%= @income.description %></td>
+	</tr>
+</table>
