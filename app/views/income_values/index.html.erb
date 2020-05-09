@@ -1,0 +1,34 @@
+<% require "active_support/core_ext/numeric/conversions" %>
+<h2>収入科目の新規データ登録</h2>
+<p>登録年月を設定して下さい</p>
+<%= form_tag({controller: :income_values, action: :new}, {method: :post}) do %>
+  <input type="month" name="year_month">
+  <input type="submit">
+<% end %>
+
+<h2>収入科目　データ一覧</h2>
+<% if @income_values.present? %>
+<table>
+  <tr>
+    <th>登録年月</th>
+    <th>名称</th>
+    <th>値</th>
+    <th>備考</th>
+    <th>操作</th>
+  </tr>
+  <% @income_values.each do |income_value|%>
+  <tr>
+    <td><%= income_value.year_month.strftime('%Y年%m月')%></td>
+    <td><%= @incomes.find(income_value.income_id).name %></td>
+    <td><%= income_value.value.to_s(:delimited) %>円</td>
+    <td><%= income_value.description %></td>
+    <td>
+      <%= link_to "編集", [:edit, income_value]%>
+      <%= link_to "削除", root_path, method: :delete, data: { confirm: "本当に削除しますか？"} %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+<% else %>
+  <p>登録されているデータがありません。</p>
+<% end %>

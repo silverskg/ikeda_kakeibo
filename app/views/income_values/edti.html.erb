@@ -1,0 +1,21 @@
+<h2>収支科目　データ修正 </h2>
+  <%= form_for @income_value do |form| %>
+  <table>
+    <tr>
+      <th>登録日</th>
+      <th>名称</th>
+      <th>値</th>
+      <th>備考</th>
+    </tr>
+
+  <tr>
+    <td><%= form.date_select :year_month,
+            start_year: 2010, end_year: Time.current.year,
+            use_month_numbers: true, discard_day: true %></td>
+    <th><%= @income.name %></th>
+    <td><%= form.text_field :value %></td>
+    <td><%= form.text_field :description %></td>
+  </tr>
+  </table>
+  <div><%= form.submit %></div>
+  <% end %>

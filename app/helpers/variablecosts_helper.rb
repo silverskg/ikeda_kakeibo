@@ -1,0 +1,2 @@
+module VariablecostsHelper
+end

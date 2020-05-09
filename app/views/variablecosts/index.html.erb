@@ -1,0 +1,29 @@
+<% @page_title = "変動費科目一覧" %>
+<h2><%= @page_title %></h2>
+<%= link_to "変動費科目の新規登録", :new_variablecost %>
+<% if @variablecosts.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>科目名</th>
+			<th>備考</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @variablecosts.each do |variablecost| %>
+			<tr>
+				<td><%= variablecost.name %></td>
+				<td><%= variablecost.description %></td>
+				<td>
+				<%= link_to "編集", [:edit, variablecost] %>
+				<%= link_to "削除", variablecost, method: :delete,
+					data: { confirm: "本当に削除しますか？"} %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<% else %>
+	<p>登録されている変動費科目がありません。</p>
+<% end %>

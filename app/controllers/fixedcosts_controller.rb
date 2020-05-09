@@ -10,6 +10,7 @@ class FixedcostsController < ApplicationController
   def new
     @fixedcost = Fixedcost.new()
   end
+  
 
   def edit
     @fixedcost = Fixedcost.find(params[:id])
@@ -39,8 +40,10 @@ class FixedcostsController < ApplicationController
   def destroy
     @fixedcost = Fixedcost.find(params[:id])
     @fixedcost.destroy
-    redirect_to :fixedcost, notice: "固定費科目を削除しました"
+    redirect_to root_path, notice: "固定費科目を削除しました"
   end
+
+  private
 
   def fixedcost_params
     params.require(:fixedcost).permit(:name,:description)

@@ -43,6 +43,8 @@ class IncomesController < ApplicationController
     redirect_to :incomes, notice: "科目を削除しました"
   end
 
+  private
+  
   def income_params
     params.require(:income).permit(:name, :description)
   end
