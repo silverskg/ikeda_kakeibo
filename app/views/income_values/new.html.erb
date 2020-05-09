@@ -22,7 +22,7 @@
           use_month_numbers: true, discard_day: true, default: @year_month %>
         </td>
       <th>
-        <%= f.text_field :value, size: 8 %>
+        <%= @incomes.find(@form.income_values[cnt].income_id).name %>
       </th>
       <% cnt+=1 %>
       <td><%= f.text_field :value, size: 8 %></td>

@@ -12,7 +12,7 @@ class IncomeValuesController < ApplicationController
     year_month_day = params[:year_month] + "-01"
     @year_month = year_month_day.to_date
     # binding.pry
-    # @incomes = IncomeValue.find(params[:id])
+    @incomes = Income.order(created_at: :asc)
     @form = Form::IncomeForm.new
   end
 
@@ -41,8 +41,9 @@ class IncomeValuesController < ApplicationController
   end
 
   def destroy
-    @income_value = IncomeValue.find(params[:id])
-    @income_value.destroy
+    @income_values = IncomeValue.find(params[:id])
+    # binding.pry
+    @income_values.destroy
     redirect_to :income_values, notice: "データを削除しました。"
   end
 
