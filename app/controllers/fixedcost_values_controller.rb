@@ -9,8 +9,8 @@ class FixedcostValuesController < ApplicationController
   end
 
   def new
-    year_month_day = params[:year_month] + "-01"
-    @year_month = year_month_day.to_date
+    # year_month_day = params[:year_month] + "-01"
+    # @year_month = year_month_day.to_date
 
     @fixedcosts = Fixedcost.order(created_at: :asc)
     @form = Form::FixedcostForm.new
@@ -23,6 +23,7 @@ class FixedcostValuesController < ApplicationController
 
   def create
     @form = Form::FixedcostForm.new(fixedcost_form_params)
+    # binding.pry
     if @form.save
       redirect_to :fixedcost_values, notice: "登録しました"
     else

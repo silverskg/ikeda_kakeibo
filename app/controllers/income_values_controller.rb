@@ -9,8 +9,8 @@ class IncomeValuesController < ApplicationController
   end
 
   def new
-    year_month_day = params[:year_month] + "-01"
-    @year_month = year_month_day.to_date
+    # year_month_day = params[:year_month] + "-01"
+    # @year_month = year_month_day.to_date
     # binding.pry
     @incomes = Income.order(created_at: :asc)
     @form = Form::IncomeForm.new
@@ -26,7 +26,7 @@ class IncomeValuesController < ApplicationController
     if @form.save
       redirect_to :income_values, notice: "登録しました"
     else
-      redirect_to :income_values, notice: "登録に失敗しました"
+      redirect_to new_income_value_path, notice: "登録に失敗しました"
     end
   end
 

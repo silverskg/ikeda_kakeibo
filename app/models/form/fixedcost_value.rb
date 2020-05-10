@@ -4,4 +4,5 @@ class Form::FixedcostValue < FixedcostValue
   attr_accessor :year_month
   attr_accessor :value
   attr_accessor :description
+  validates :value, presence: true
 end

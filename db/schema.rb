@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_083345) do
+ActiveRecord::Schema.define(version: 2020_05_09_130409) do
 
   create_table "fixedcost_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "fixedcost_id", null: false
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(version: 2020_05_09_083345) do
 
   create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "variablecost_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "variablecost_id", null: false
+    t.date "year_month"
+    t.integer "value"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
