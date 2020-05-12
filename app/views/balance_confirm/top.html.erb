@@ -1,0 +1,17 @@
+<h2>月次収支確認</h2>
+
+<%= form_tag({controller: :balance_confirm, action: :show}, {method: :post}) do %>
+  <input type="month" name="year_month">
+  <input type="submit">
+<% end %>
+
+<h2>年間収支確認</h2>
+<%= form_tag({controller: :balance_confirm, action: :show_year}, {method: :post}) do %>
+  <input type="hidden" name="year">
+    <select name="year">
+      <% 2010.upto(2050) do |n| %>
+        <option value=<%= n.to_s %>><%= n %></option>
+      <% end %>
+    </select>
+  <input type="submit">
+<% end %>

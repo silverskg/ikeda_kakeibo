@@ -1,0 +1,102 @@
+<h2><%= @year_month %> 月次収支確認</h2>
+
+<h3>収入</h3>
+<% if @income_values.present? %>
+<table>
+  <thead>
+    <tr>
+      <th>科目名</th>
+      <th>値</th>
+      <th>備考</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @income_values.each do |income_value| %>
+      <tr>
+        <td><%= @incomes.find(income_value.income_id).name %></td>
+        <td style="text-align: right"><%= income_value.value %>円</td>
+        <td><%= income_value.description %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td><b>収入合計</b></td>
+      <td style="text-align: right"><b><%= @income_value_total %>円</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<% else %>
+  <p>登録されている収入がありません。</p>
+<% end %>
+
+<h3>固定費</h3>
+<% if @fixedcost_values.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>科目名</th>
+        <th>値</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fixedcost_values.each do |fixedcost_value| %>
+        <tr>
+          <td><%= @fixedcosts.find(fixedcost_value.fixedcost_id).name %></td>
+          <td style="text-align: right"><%= fixedcost_value.value%>円</td>
+          <td><%= fixedcost_value.description %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td><b>固定費合計</b></td>
+        <td style="text-align: right"><b><%= @fixedcost_value_total %>円</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <% else %>
+    <p>登録されている固定費がありません</p>
+<% end %>
+
+<h3>変動費</h3>
+<% if @variablecost_values.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>科目</th>
+        <th>値</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @variablecost_values.each do |variablecost_value| %>
+        <tr>
+          <td><%= @variablecosts.find(variablecost_value.variablecost_id).name %></td>
+          <td style="text-align: right"><%= variablecost_value.value %>円</td>
+          <td><%= variablecost_value.description %></td>
+        </tr>
+      <% end %>
+      <tr>
+        <td><b>変動合計</b></td>
+        <td style="text-align: right"><b><%= @variablecost_value_total %>円</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>収支結果</h3>
+
+  <table>
+    <tbody>
+      <tr>
+        <td><b>収支差</b></td>
+        <td style="text-align: right"><b><%= @balance_difference %>円</b></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <b>収支差<%= @balance_difference %>円</b>
+  <% else %>
+    <p>登録されている変動費がありません</p>
+<% end %>

@@ -1,0 +1,27 @@
+<h2><%= @year %>年 年間収支確認</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>年月</th>
+      <th>収入合計値</th>
+      <th>固定費合計値</th>
+      <th>変動費合計値</th>
+      <th>収支（収入 - 費用）結果</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% month=1 %>
+    <% 0.upto(11) do |i| %>
+      <% if @income_value_totals[i].present? %>
+      <tr>
+        <td><%= @year %><%= i+1 %>月</td>
+        <td><%= @income_value_totals[i] %>円</td>
+        <td><%= @fixedcost_value_totals[i] %>円</td>
+        <td><%= @variablecost_value_totals[i] %>円</td>
+        <td><%= @balance_differences[i] %>円</td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
