@@ -46,32 +46,54 @@ class BalanceConfirmController < ApplicationController
     #年度の収入配列を作成
     i=0
     total = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
+    #グラフ用データ
+    gon.data_incomes = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
     year_months.each do |year_month|
       income_values = IncomeValue.where(year_month: year_month)
       if income_values.present?
-        total[i] = cal_income_total(income_value)
+        total[i] = cal_income_total(income_values)
+        #グラフ用データ
+        gon.data_incomes[i] = total[i]
       end
       i += 1
     end
     @income_value_totals = total
 
+    #年度の固定費配列を作成
+		i=0
+		total = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
+    gon.data_fixedcosts = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]	#グラフ用データ
+		year_months.each do |year_month|
+			fixedcost_values = FixedcostValue.where(year_month: year_month)
+			if fixedcost_values.present?
+				total[i] = cal_fixedcost_total(fixedcost_values)
+        gon.data_fixedcosts[i] = total[i]	#グラフ用データ
+			end
+			i += 1
+		end
+		@fixedcost_value_totals = total
+
     #年度の変動費配列を作成
     i=0
     tatal = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
+    gon.data_variables = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
     year_months.each do |year_month|
       variablecost_values = VariablecostValue.where(year_month: year_month)
       if variablecost_values.present?
-        tatal[i] = cal_variablecost_total(variablecost_values)
+        total[i] = cal_variablecost_total(variablecost_values)
+        gon.data_variables[i] = total[i]
       end
       i += 1
     end
     @variablecost_value_totals = total
 
     #年度の収支結果を計算
-    @balance_differnces = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
+    @balance_differences = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
+    gon.data_fesults = [nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil,nil]
     0.upto(11) do |i|
       if @income_value_totals[i].present?
-        @balance_differnce[i] = @income_value_totals[i] - (@fixedcost_value_totals[i] + @variablecost_value_totals[i])
+        @balance_differences[i] = @income_value_totals[i] - (@fixedcost_value_totals[i] + @variablecost_value_totals[i])
+        gon.data_fesults[i] = @balance_differences[i]
       end
     end
   end
