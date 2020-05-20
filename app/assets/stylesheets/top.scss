@@ -1,3 +1,62 @@
-// Place all the styles related to the top controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #f6f6f6;
+  min-width: 650px;
+  .header {
+    height: 60px;
+    width: 100%;
+    padding: 0 150px;
+    background-color: #55c500;
+    color: #fff;
+    &__title {
+      font-size: 30px;
+      line-height: 56px;
+      &--text {
+        color: #fff;
+      }
+    }
+  }
+  .contents{
+    margin: 30px auto 0;
+    background-color: #fff;
+    height: 350px;
+    width: 70%;
+    overflow: scroll;
+    text-align: center;
+    .content{
+      text-align: center;
+      padding: 10px;
+      border-bottom: 1px solid #f6f6f6;
+      display: flex;
+      &__left {
+        width: 50%;
+        padding-right: 20px;
+        // &--image {
+        //   height: 55px;
+        //   width: 55px;
+        //   border: solid 1px;
+        // }
+      }
+      &__right {
+        width: 50%;
+        &__top {
+          font-size: 20px;
+          font-weight: bold;
+          &--title {
+            text-decoration: none;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+  ul {
+    margin: 10px;
+  }
+  a {
+    text-decoration: none;
+    color: #55c500;
+  }
+  select {
+    width: 50%;
+  }
+}

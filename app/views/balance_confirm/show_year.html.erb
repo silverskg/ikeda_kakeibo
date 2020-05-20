@@ -15,7 +15,7 @@
     <% 0.upto(11) do |i| %>
       <% if @income_value_totals[i].present? %>
       <tr>
-        <td><%= @year %><%= i+1 %>月</td>
+        <td><%= @year %>年 <%= i+1 %>月</td>
         <td><%= @income_value_totals[i] %>円</td>
         <td><%= @fixedcost_value_totals[i] %>円</td>
         <td><%= @variablecost_value_totals[i] %>円</td>
