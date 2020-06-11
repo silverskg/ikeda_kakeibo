@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "トップ", items_path %>
+        <%= link_to '投稿画面へ', new_item_path %> 
+      <% else %>
+        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "新規登録", new_user_registration_path %>
+    <% end %>
   <header class="header">
       <div class="header__title">
         <%= link_to "Silver_kakeibO", root_path, class: "header__title--text" %>
