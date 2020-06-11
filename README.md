@@ -1,24 +1,20 @@
-# README
+# アプリ概要
+収入、固定費、変動費等のお金の管理をするアプリです。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 企画背景
+たくさん家計簿がある中ですが、操作が難しと母親が言っていたのがきっかけで作成してみました！
 
-Things you may want to cover:
+# 開発環境
+Rails 5.2.4.2
+Ruby on Rails
+Javascript
+Chrat.js
 
-* Ruby version
+# 機能
+収入・固定費・変動費とうに書く場所を設けているので、
+そこに格項目に合う内容を記述してもらい
+日付と金額を入力すれば
+グラフとして表示することが出来ます。
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 今後実装予定
+画像投稿機能（レシートなどの保管機能）
