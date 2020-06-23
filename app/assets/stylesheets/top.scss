@@ -14,11 +14,15 @@ body {
         color: #fff;
       }
     }
+    &__right {
+      text-align: center;
+     
+    }
   }
   .contents{
     margin: 30px auto 0;
     background-color: #fff;
-    height: 350px;
+    height: 100%;
     width: 70%;
     overflow: scroll;
     text-align: center;

@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2020_06_11_055834) do
 
-  create_table "fixedcost_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "fixedcost_values", force: :cascade do |t|
     t.integer "fixedcost_id", null: false
     t.date "year_month"
     t.integer "value"
@@ -21,14 +24,14 @@ ActiveRecord::Schema.define(version: 2020_06_11_055834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "fixedcosts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "fixedcosts", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "income_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "income_values", force: :cascade do |t|
     t.integer "income_id", null: false
     t.date "year_month"
     t.integer "value"
@@ -37,14 +40,14 @@ ActiveRecord::Schema.define(version: 2020_06_11_055834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "incomes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "incomes", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_055834) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "variablecost_values", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "variablecost_values", force: :cascade do |t|
     t.integer "variablecost_id", null: false
     t.date "year_month"
     t.integer "value"
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_055834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "variablecosts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "variablecosts", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
