@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+#ゲストログイン機能
+  post '/homes/guest_sign_in', to: 'homes#new_guest'
+
   root to: 'top#index' 
   post "income_values/new(/:name)" => "income_values#new"
   post "fixedcost_values/new(/:name)" => "fixedcost_values#new"
