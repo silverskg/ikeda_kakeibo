@@ -15,7 +15,16 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
-gem 'bootsnap', '>= 1.1.0', require: false
+# 日本語化
+gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
+
+# Bootstrap
+gem 'bootstrap', '~> 4.4.1'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
+gem 'bootsnap'
+
 #node.jsグラフ機能追加
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'gon', '~> 6.2.0'
@@ -46,3 +55,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+
+
