@@ -23,12 +23,13 @@ gem 'devise-i18n'
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
 gem 'devise-bootstrap-views', '~> 1.0'
-gem 'bootsnap'
+
 
 #node.jsグラフ機能追加
 gem 'chart-js-rails', '~> 0.1.4'
 gem 'gon', '~> 6.2.0'
 
+gem 'bootsnap'
 
 gem 'pry-rails'
 group :development, :test do
