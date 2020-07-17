@@ -1,6 +1,6 @@
 <div class="container-login">
 <h1><%= t('.sign_in') %></h1>
-
+<%= render 'shared/flash_messages' %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group">
     <%= f.label :email %>
@@ -9,7 +9,9 @@
 
   <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
+    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control',required: true,
+                                      minlength: @minimum_password_length,
+                                      maxlength: '30' %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -22,7 +24,16 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.submit  t('.sign_in'), class: 'btn btn-primary' %>
+    <%= f.submit  t('.sign_in'), class: 'btn btn-primary btn-block' %>
+  </div>
+<% end %>
+
+<hr class="border-dark my-5">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.hidden_field :email, value: 'guest@example.com' %>
+  <%= f.hidden_field :password, value: 'password' %>
+  <div class="form-group">
+    <%= f.submit 'ゲストログイン（閲覧用)', class: 'btn btn-primary btn-block'%>
   </div>
 <% end %>
 

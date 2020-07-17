@@ -22,7 +22,7 @@ gem 'devise-i18n'
 # Bootstrap
 gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
-gem 'devise-bootstrap-views', '~> 1.0'
+
 
 
 #node.jsグラフ機能追加
