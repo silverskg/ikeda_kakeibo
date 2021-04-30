@@ -27,7 +27,7 @@ gem 'jquery-rails'
 
 #node.jsグラフ機能追加
 gem 'chart-js-rails', '~> 0.1.4'
-gem 'gon', '~> 6.2.0'
+gem 'gon', '~> 6.4.0'
 
 gem 'bootsnap'
 
